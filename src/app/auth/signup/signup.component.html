@@ -41,10 +41,22 @@
     </mat-form-field>
 
     <mat-form-field class="signupInput">
-      <input matInput placeholder="Your Birthday" [matDatepicker]="picker" [max]="maxDate" />
+      <input
+        matInput
+        placeholder="Your Birthday"
+        [matDatepicker]="picker"
+        [max]="maxDate"
+        ngModel
+        name="birthdate"
+        required
+      />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+
+    <mat-checkbox ngModel name="agree" required color="primary"
+      >Agree to Terms and Conditions.</mat-checkbox
+    >
 
     <button class="signupBtn" type="submit" mat-raised-button color="primary">
       Submit
