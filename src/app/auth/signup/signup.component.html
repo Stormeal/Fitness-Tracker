@@ -4,8 +4,12 @@
     fxLayoutAlign="center center"
     #f="ngForm"
     (ngSubmit)="onSubmit(f)"
+    fxLayoutGap="15px"
   >
-    <mat-form-field>
+    <mat-form-field
+      class="signupInput"
+      hintLabel="Please insert a valid email address"
+    >
       <input
         type="email"
         matInput
@@ -14,11 +18,19 @@
         name="email"
         required
         #emailInput="ngModel"
+        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
       />
-      <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty</mat-error>
-      <mat-error *ngIf="!emailInput.hasError('required')">Mail address is invalid</mat-error>
+      <mat-error *ngIf="emailInput.hasError('required')"
+        >Field must not be empty</mat-error
+      >
+      <mat-error *ngIf="!emailInput.hasError('required')"
+        >Mail address is invalid</mat-error
+      >
     </mat-form-field>
-    <mat-form-field hintLabel="Password has to be a minimum of 6 characters.">
+    <mat-form-field
+      class="signupInput"
+      hintLabel="Password has to be a minimum of 6 characters."
+    >
       <input
         type="password"
         matInput
@@ -31,8 +43,34 @@
       />
       <mat-hint align="end">{{ pwInput.value?.length }} / 6</mat-hint>
       <mat-error>Has to be a minimum of 6 characters.</mat-error>
-
     </mat-form-field>
-    <button type="submit" mat-raised-button color="primary">Submit</button>
+
+    <mat-form-field class="signupInput">
+      <input
+        matInput
+        placeholder="Your Birthday"
+        [matDatepicker]="picker"
+        [max]="maxDate"
+        ngModel
+        name="birthdate"
+        required
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-checkbox ngModel name="agree" required color="primary"
+      >Agree to Terms and Conditions.</mat-checkbox
+    >
+
+    <button
+      class="signupBtn"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="f.invalid"
+    >
+      Submit
+    </button>
   </form>
 </section>
