@@ -2,13 +2,6 @@
   padding-top: 15px;
 }
 
-.signupBtn {
-  margin: 15px;
-}
-
-.signupInput {
-  padding: 10px;
-}
 mat-form-field {
   width: 300px;
 }

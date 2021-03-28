@@ -4,8 +4,12 @@
     fxLayoutAlign="center center"
     #f="ngForm"
     (ngSubmit)="onSubmit(f)"
+    fxLayoutGap="15px"
   >
-    <mat-form-field class="signupInput">
+    <mat-form-field
+      class="signupInput"
+      hintLabel="Please insert a valid email address"
+    >
       <input
         type="email"
         matInput
@@ -14,6 +18,7 @@
         name="email"
         required
         #emailInput="ngModel"
+        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
       />
       <mat-error *ngIf="emailInput.hasError('required')"
         >Field must not be empty</mat-error
@@ -58,7 +63,13 @@
       >Agree to Terms and Conditions.</mat-checkbox
     >
 
-    <button class="signupBtn" type="submit" mat-raised-button color="primary">
+    <button
+      class="signupBtn"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="f.invalid"
+    >
       Submit
     </button>
   </form>
