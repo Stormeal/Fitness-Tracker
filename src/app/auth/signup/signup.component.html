@@ -22,7 +22,10 @@
         >Mail address is invalid</mat-error
       >
     </mat-form-field>
-    <mat-form-field class="signupInput" hintLabel="Password has to be a minimum of 6 characters.">
+    <mat-form-field
+      class="signupInput"
+      hintLabel="Password has to be a minimum of 6 characters."
+    >
       <input
         type="password"
         matInput
@@ -38,7 +41,7 @@
     </mat-form-field>
 
     <mat-form-field class="signupInput">
-      <input matInput placeholder="Your Birthday" [matDatepicker]="picker" />
+      <input matInput placeholder="Your Birthday" [matDatepicker]="picker" [max]="maxDate" />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
