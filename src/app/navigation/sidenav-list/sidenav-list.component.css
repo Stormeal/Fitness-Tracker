@@ -1,0 +1,12 @@
+mat-sidenav-list {
+  width: 100%;
+}
+
+mat-list-item {
+  height: 100%;
+}
+
+.nav-caption {
+  display: inline-block;
+  padding-left: 6px;
+}
