@@ -1,6 +1,36 @@
 <mat-sidenav-container>
   <mat-sidenav opened="false" #sidenav role="navigation">
-    <p>I'm the sidenav</p>
+    <!-- SIDENAV CONTENT START -->
+    <div fxLayout="column" fxLayoutAlign="space-evenly start">
+      <mat-nav-list fxLayout="column">
+        <a mat-list-item routerLink="/signup" (click)="sidenav.close()">
+          <mat-icon>perm_identity</mat-icon>
+          <span class="nav-caption">Signup</span>
+        </a>
+        <a mat-list-item routerLink="/login" (click)="sidenav.close()">
+          <mat-icon>login</mat-icon>
+          <span class="nav-caption">Login</span>
+        </a>
+        <a mat-list-item routerLink="/training" (click)="sidenav.close()">
+          <mat-icon>fitness_center</mat-icon>
+          <span class="nav-caption">Training</span>
+        </a>
+      </mat-nav-list>
+    </div>
+    <br />
+    <hr />
+    <div fxLayout="column" fxLayoutAlign="end">
+      <mat-nav-list>
+        <mat-list-item>
+          <button mat-icon-button (click)="sidenav.close()">
+            <mat-icon>logout</mat-icon>
+            <span class="nav-caption">Logout</span>
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+
+    <!-- SIDENAV CONTENT END -->
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
@@ -21,6 +51,9 @@
           </li>
           <li>
             <a routerLink="/training">Training</a>
+          </li>
+          <li>
+            <a>Logout</a>
           </li>
         </ul>
       </div>
