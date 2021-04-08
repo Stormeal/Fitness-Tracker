@@ -1,13 +1,28 @@
 <mat-nav-list fxLayout="column">
-  <a mat-list-item routerLink="/signup" (click)="onCloseSidenav()">
+  <a
+    *ngIf="!isAuth"
+    mat-list-item
+    routerLink="/signup"
+    (click)="onCloseSidenav()"
+  >
     <mat-icon>perm_identity</mat-icon>
     <span class="nav-caption">Signup</span>
   </a>
-  <a mat-list-item routerLink="/login" (click)="onCloseSidenav()">
+  <a
+    *ngIf="!isAuth"
+    mat-list-item
+    routerLink="/login"
+    (click)="onCloseSidenav()"
+  >
     <mat-icon>login</mat-icon>
     <span class="nav-caption">Login</span>
   </a>
-  <a mat-list-item routerLink="/training" (click)="onCloseSidenav()">
+  <a
+    *ngIf="isAuth"
+    mat-list-item
+    routerLink="/training"
+    (click)="onCloseSidenav()"
+  >
     <mat-icon>fitness_center</mat-icon>
     <span class="nav-caption">Training</span>
   </a>
@@ -15,7 +30,7 @@
 <br />
 <br />
 <hr />
-<mat-nav-list>
+<mat-nav-list *ngIf="isAuth">
   <mat-list-item>
     <button mat-icon-button (click)="onCloseSidenav()">
       <mat-icon>logout</mat-icon>
