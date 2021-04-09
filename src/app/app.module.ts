@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthService } from './auth/auth.service';
+import { TrainingService } from './training/training.service';
 
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -44,7 +45,7 @@ import { StopTrainingComponent } from './training/current-training/stop-training
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [StopTrainingComponent],
