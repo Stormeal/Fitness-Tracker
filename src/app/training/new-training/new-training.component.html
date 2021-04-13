@@ -1,31 +1,36 @@
 <section class="new-training" fxLayout fxLayoutAlign="center">
-  <mat-card class="new-training-card" fxFlex.lt-md="60">
-    <mat-card-title fxLayoutAlign="center"
-      >Time to start a workout</mat-card-title
-    >
-    <mat-card-content fxLayoutAlign="center">
-      <!-- CONTENT START -->
-      <mat-form-field>
-        <mat-select placeholder="Select type of training">
-          <ng-container *ngFor="let exercise of exercises">
-            <mat-option [value]="exercise">
-              {{ this.exercise.name }}
-            </mat-option>
-          </ng-container>
+  <form (ngSubmit)="onStartTraining(f)" #f="ngForm">
+    <mat-card class="new-training-card" fxFlex.lt-md="60">
+      <mat-card-title fxLayoutAlign="center"
+        >Time to start a workout</mat-card-title
+      >
+      <mat-card-content fxLayoutAlign="center">
+        <!-- CONTENT START -->
+        <mat-form-field>
+          <mat-select
+            placeholder="Select type of training"
+            ngModel
+            name="exercise"
+            required
+          >
+            <ng-container *ngFor="let exercise of exercises">
+              <mat-option [value]="exercise">
+                {{ this.exercise.name }}
+              </mat-option>
+            </ng-container>
 
-          <ng-template #noExercises>
-            <mat-option>
-              No available exercises could be found
-            </mat-option>
-          </ng-template>
-        </mat-select>
-      </mat-form-field>
-      <!-- CONTENT END -->
-    </mat-card-content>
-    <mat-card-actions fxLayoutAlign="center">
-      <button type="submit" mat-button (click)="onStartTraining()">
-        Start
-      </button>
-    </mat-card-actions>
-  </mat-card>
+            <ng-template #noExercises>
+              <mat-option> No available exercises could be found </mat-option>
+            </ng-template>
+          </mat-select>
+        </mat-form-field>
+        <!-- CONTENT END -->
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center">
+        <button type="submit" mat-button [disabled]="f.invalid">
+          Start
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
 </section>
